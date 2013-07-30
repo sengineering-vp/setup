@@ -1,0 +1,27 @@
+#guide from http://chiragchamoli.com/posts/step-by-step-guide-for-installing-lamp-stack-on-aws-ec2-instance/
+
+#update & upgrade
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install tasksel
+
+#install lamp
+#set root password
+sudo tasksel install lamp-server
+
+#check if it works
+#open in browser htpp://your_ec2_instance
+
+#install phpmyadmin
+sudo apt-get install phpmyadmin
+
+# open file for edit
+sudo nano /etc/apache2/apache2.conf
+# Add to the end of the file
+Include /etc/phpmyadmin/apache.conf
+
+#restart apache
+sudo /etc/init.d/apache2 restart
+
+#check if it works
+#open in browser htpp://your_ec2_instance/phpmyadmin
